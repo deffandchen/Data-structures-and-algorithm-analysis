@@ -1,34 +1,10 @@
 //定义数据结构
 //构造一个类
 //创建类中功能函数
-#include<iostream>
+#include "BTree.h"
 
 using namespace std;
 
-//一个二叉树节点包含数据和左右两个子树叶
-struct tree{
-    int data;
-    tree *left, *right;
-};
-
-class BinaryTree{
-    public:
-        int data;
-        tree *root = NULL;
-    public:
-        BinaryTree()               //构造函数，前面不能加类型
-        { 
-            root = NULL;
-        }              
-        void create_binary_tree(int dat);
-        void inorder(tree *);
-        int count(tree *temp);
-        void dispaly()
-        {
-            inorder(root);
-            cout << endl;
-        }
-};
 
 //创建二叉树
 void BinaryTree::create_binary_tree(int dat)
@@ -71,6 +47,8 @@ void BinaryTree::create_binary_tree(int dat)
     }
 }
 
+
+
 //二叉树计数
 int BinaryTree::count(tree *temp)
 {
@@ -92,6 +70,13 @@ void BinaryTree::inorder(tree *temp)
 		cout<<temp->data<<" ";
 		inorder(temp->right);
 	}
+}
+
+//显示中序遍历结果
+void BinaryTree::dispaly()
+{
+    inorder(root);
+    std::cout << std::endl;
 }
 
 int main()
