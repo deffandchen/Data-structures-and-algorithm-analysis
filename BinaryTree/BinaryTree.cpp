@@ -1,15 +1,15 @@
 //定义数据结构
 //构造一个类
 //创建类中功能函数
-#include "BTree.h"
+#include "BinaryTree.h"
 
 using namespace std;
 
-
 //创建二叉树
-void BinaryTree::create_binary_tree(int dat)
+template<typename T>
+void BinaryTree<T>::create_binary_tree(const T &dat)
 {
-    tree *newNode = new tree;
+    tree<T> *newNode = new tree<T>;
     newNode -> data = dat;
     newNode ->left = NULL;
     newNode ->right = NULL;
@@ -20,8 +20,8 @@ void BinaryTree::create_binary_tree(int dat)
     }
     else
     {
-        tree *currentNode = root;
-        tree *back;
+        tree<T> *currentNode = root;
+        tree<T> *back;
         while (currentNode != NULL)
         {
             back = currentNode;
@@ -47,10 +47,9 @@ void BinaryTree::create_binary_tree(int dat)
     }
 }
 
-
-
 //二叉树计数
-int BinaryTree::count(tree *temp)
+template<typename T>
+int BinaryTree<T>::count(tree<T> *temp)
 {
     int num = 0;
     if(temp != NULL)
@@ -62,7 +61,8 @@ int BinaryTree::count(tree *temp)
 }
 
 //这是中序遍历二叉树，采用了递归的方法.递归还是有点绕啊。。。
-void BinaryTree::inorder(tree *temp)     
+template<typename T>
+void BinaryTree<T>::inorder(tree<T> *temp)     
 {
 	if(temp!=NULL)
 	{
@@ -73,7 +73,8 @@ void BinaryTree::inorder(tree *temp)
 }
 
 //显示中序遍历结果
-void BinaryTree::dispaly()
+template<typename T>
+void BinaryTree<T>::dispaly()
 {
     inorder(root);
     std::cout << std::endl;
@@ -81,14 +82,14 @@ void BinaryTree::dispaly()
 
 int main()
 {
-    BinaryTree btree;
-    int array[7] = { 10,2,30,4,5,8};
+    BinaryTree<int> binarytree;
+    int array[7] = { 10,2,30,4,50,8};
+    
     for(int i = 0; i<7; ++i)
     {
-        btree.create_binary_tree(array[i]);
+        binarytree.create_binary_tree(array[i]);
     }
 
-    btree.dispaly();
-    cout << "btree cout:" << btree.count(btree.root) << endl;
-
+    binarytree.dispaly();
+    cout << "btree cout:" << binarytree.count(binarytree.root) << endl;
 }

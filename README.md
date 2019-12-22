@@ -1,4 +1,4 @@
-# BinaryTree
+# BinaryTree Template
 
 ## Some binary tree founction ：
 
