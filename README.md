@@ -6,5 +6,8 @@
 
 ### 2. count
 
-### 3. inorder
+### 3. find_max and find_min
+
+### 4. inorder
+
 

@@ -1,6 +1,8 @@
 //定义数据结构
 //构造一个类
 //创建类中功能函数
+//TODO: insert() delete()
+
 #include "BinaryTree.h"
 
 using namespace std;
@@ -43,7 +45,6 @@ void BinaryTree<T>::create_binary_tree(const T &dat)
         {
             back -> right = newNode;
         }
-        
     }
 }
 
@@ -58,6 +59,30 @@ int BinaryTree<T>::count(tree<T> *temp)
     }
     
     return num;
+}
+
+template<typename T>
+tree<T>* BinaryTree<T>::find_max(tree<T> *temp)
+{
+    if(temp == NULL)
+        return NULL;
+    else if(temp ->right == NULL)
+        return temp;
+    else
+        find_max(temp ->right);
+    
+}
+
+template<typename T>
+tree<T>* BinaryTree<T>::find_min(tree<T> *temp)
+{
+    if(temp == NULL)
+        return NULL;
+    else if(temp ->left == NULL)
+        return temp;
+    else
+        find_min(temp ->left);
+       
 }
 
 //这是中序遍历二叉树，采用了递归的方法.递归还是有点绕啊。。。
@@ -91,5 +116,7 @@ int main()
     }
 
     binarytree.dispaly();
-    cout << "btree cout:" << binarytree.count(binarytree.root) << endl;
+    cout << "binary tree cout:" << binarytree.count(binarytree.root) << endl;
+    cout <<"find max:" << binarytree.find_max(binarytree.root)->data << endl;
+    cout <<"find min:" << binarytree.find_min(binarytree.root)->data << endl;
 }

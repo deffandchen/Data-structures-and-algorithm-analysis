@@ -25,6 +25,9 @@ class BinaryTree{
         void inorder(tree<T> *temp);
         int count(tree<T> *temp);
         void dispaly();
+        tree<T>* find_max(tree<T> *temp);
+        tree<T>* find_min(tree<T> *temp);
+
 };
 
 #endif
